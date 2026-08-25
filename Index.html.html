@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>gunslayers | About</title>
+<style>
+  :root{
+    --bg:#07090d;
+    --surface:#0d1118;
+    --surface-soft:#111722;
+    --text:#f4f7fb;
+    --muted:#9aa6b8;
+    --line:rgba(255,255,255,.08);
+    --accent:#5aa9ff;
+    --accent-2:#7866ff;
+    --max:1040px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--text);
+    background:
+      radial-gradient(circle at 50% -10%, rgba(90,169,255,.12), transparent 34%),
+      linear-gradient(180deg,#07090d 0%,#090c12 48%,#07090d 100%);
+    font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+    line-height:1.7;
+  }
+
+  body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+    background-size:80px 80px;
+    mask-image:linear-gradient(to bottom,black,transparent 75%);
+  }
+
+  .page{max-width:var(--max);margin:auto;padding:0 28px 70px}
+
+  header{
+    min-height:78vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    padding:70px 0 90px;
+  }
+
+  .hero{max-width:820px}
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:#c5d1e1;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    margin-bottom:24px;
+  }
+
+  .eyebrow:before{
+    content:"";
+    width:30px;
+    height:1px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  }
+
+  h1{
+    margin:0;
+    font-size:clamp(62px,11vw,118px);
+    line-height:.9;
+    letter-spacing:-.065em;
+    font-weight:800;
+  }
+
+  .hero h1 span{
+    background:linear-gradient(100deg,#fff 35%,#a9cfff 70%,#8e82ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero-sub{
+    max-width:680px;
+    margin:28px auto 0;
+    color:var(--muted);
+    font-size:clamp(17px,2.2vw,21px);
+  }
+
+  .hero-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:30px;
+  }
+
+  .hero-links a,.social a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+    padding:11px 17px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.035);
+    transition:.2s ease;
+  }
+
+  .hero-links a:hover,.social a:hover{
+    transform:translateY(-2px);
+    border-color:rgba(90,169,255,.35);
+    background:rgba(90,169,255,.09);
+  }
+
+  .scroll{
+    position:absolute;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#667286;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  main{position:relative}
+
+  .intro{
+    display:grid;
+    grid-template-columns:1fr 1.65fr;
+    gap:70px;
+    padding:85px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .section-label{
+    color:#8fa0b6;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+    margin-bottom:13px;
+  }
+
+  h2{
+    margin:0;
+    font-size:clamp(28px,4vw,42px);
+    line-height:1.08;
+    letter-spacing:-.035em;
+  }
+
+  .copy p{
+    color:var(--muted);
+    font-size:17px;
+    margin:0 0 18px;
+  }
+
+  .copy p:last-child{margin-bottom:0}
+
+  .highlight{color:#fff;font-weight:700}
+
+  .divider{
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent);
+  }
+
+  .features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    padding:75px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .feature{
+    padding:8px 34px;
+    border-right:1px solid var(--line);
+  }
+
+  .feature:first-child{padding-left:0}
+  .feature:last-child{border-right:0;padding-right:0}
+
+  .feature-icon{
+    font-size:25px;
+    margin-bottom:15px;
+  }
+
+  .feature h3{
+    margin:0 0 8px;
+    font-size:20px;
+  }
+
+  .feature p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .journey{
+    padding:90px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .journey-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:30px;
+    margin-bottom:40px;
+  }
+
+  .journey-head p{
+    max-width:440px;
+    margin:0;
+    color:var(--muted);
+  }
+
+  .timeline{
+    position:relative;
+    margin-left:8px;
+    padding-left:32px;
+  }
+
+  .timeline:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:5px;
+    bottom:5px;
+    width:1px;
+    background:linear-gradient(var(--accent),rgba(120,102,255,.15));
+  }
+
+  .step{
+    position:relative;
+    padding:0 0 34px;
+  }
+
+  .step:last-child{padding-bottom:0}
+
+  .step:before{
+    content:"";
+    position:absolute;
+    left:-36px;
+    top:6px;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 5px rgba(90,169,255,.08);
+  }
+
+  .step h3{margin:0 0 5px;font-size:19px}
+  .step p{margin:0;color:var(--muted);max-width:760px}
+
+  .community{
+    padding:90px 0;
+    border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+
+  .community-inner{max-width:760px;margin:auto}
+  .community p{color:var(--muted);font-size:17px}
+
+  .discord{
+    display:inline-flex;
+    margin-top:12px;
+    padding:13px 21px;
+    border-radius:999px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:800;
+    background:linear-gradient(110deg,var(--accent),var(--accent-2));
+    box-shadow:0 12px 35px rgba(90,169,255,.14);
+    transition:.2s ease;
+  }
+
+  .discord:hover{transform:translateY(-2px);filter:brightness(1.07)}
+
+  .social-section{
+    padding:85px 0 30px;
+    text-align:center;
+  }
+
+  .social{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:25px;
+  }
+
+  footer{
+    text-align:center;
+    color:#667286;
+    font-size:12px;
+    padding-top:50px;
+  }
+
+  @media(max-width:760px){
+    .page{padding:0 20px 50px}
+    header{min-height:75vh}
+    .intro{grid-template-columns:1fr;gap:25px;padding:65px 0}
+    .features{grid-template-columns:1fr;padding:55px 0}
+    .feature,.feature:first-child,.feature:last-child{
+      border-right:0;
+      border-bottom:1px solid var(--line);
+      padding:25px 0;
+    }
+    .feature:first-child{padding-top:0}
+    .feature:last-child{border-bottom:0;padding-bottom:0}
+    .journey{padding:65px 0}
+    .journey-head{display:block}
+    .journey-head p{margin-top:15px}
+    .community{padding:65px 0}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="hero">
+    <div class="eyebrow">Gaming · Trophy Hunting · Community</div>
+    <h1><span>gunslayers</span></h1>
+    <p class="hero-sub">A gaming creator, trophy hunter and Games Design & Development student building a community around the games we love.</p>
+    <nav class="hero-links" aria-label="Social links">
+      <a href="https://www.twitch.tv/gunslayersyt" target="_blank" rel="noopener noreferrer">Twitch</a>
+      <a href="https://www.youtube.com/@gunslayers" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://discord.gg/rAaxK4nnkh" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href="https://www.tiktok.com/@youtube_gunslayers?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.instagram.com/joshua__hankins/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </nav>
+  </div>
+  <div class="scroll">Scroll to explore</div>
+</header>
+
+<main>
+  <section class="intro">
+    <div>
+      <div class="section-label">01 · About</div>
+      <h2>More than just a gaming channel.</h2>
+    </div>
+    <div class="copy">
+      <p>Hey, I’m <span class="highlight">Josh</span> — a university student studying <span class="highlight">Games Design & Development</span>, a content creator, and a passionate gamer.</p>
+      <p>Gaming has been a huge part of my life for as long as I can remember. I created gunslayers to share that passion, create entertaining content, and build a community where people can come together around the games they love.</p>
+      <p>I’m also autistic and have ADHD. I want this community to be a welcoming place where people can be themselves, meet other gamers, share their experiences, and enjoy the journey together.</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <article class="feature">
+      <div class="feature-icon">🏆</div>
+      <h3>Trophy Hunting</h3>
+      <p>I love chasing Platinum Trophies and taking games all the way to 100% completion. Every difficult trophy is another challenge to overcome.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-icon">🎮</div>
+      <h3>Every Platform</h3>
+      <p>PlayStation, Xbox, PC and Nintendo. I enjoy experiencing games across platforms and discovering something new to play.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-icon">🎥</div>
+      <h3>Content Creation</h3>
+      <p>Streams, videos, short-form clips and community content — all with the goal of making every piece better than the last.</p>
+    </article>
+  </section>
+
+  <section class="journey">
+    <div class="journey-head">
+      <div>
+        <div class="section-label">02 · The Journey</div>
+        <h2>What gunslayers is about.</h2>
+      </div>
+      <p>The goal is simple: keep improving, keep playing, and build something that people genuinely want to be part of.</p>
+    </div>
+
+    <div class="timeline">
+      <article class="step">
+        <h3>Play the games I love</h3>
+        <p>From first playthroughs and story-driven adventures to multiplayer sessions, challenges and completely unexpected gaming moments.</p>
+      </article>
+      <article class="step">
+        <h3>Chase the Platinum</h3>
+        <p>Find the collectibles, complete the challenges and push through the grind until that final Platinum Trophy pops.</p>
+      </article>
+      <article class="step">
+        <h3>Create and improve</h3>
+        <p>Turn those experiences into streams, YouTube videos and short-form content while constantly improving the quality of the channel.</p>
+      </article>
+      <article class="step">
+        <h3>Build the community</h3>
+        <p>Create a positive place where gamers can hang out, talk about what they’re playing and become part of the Gunslayers journey.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="community">
+    <div class="community-inner">
+      <div class="section-label">03 · Community</div>
+      <h2>Welcome to Gunslayer’s HUB.</h2>
+      <p>The Discord is the community’s home away from the streams. It’s a place to hang out, talk games, share achievements and keep up with daily updates, stream announcements, videos and what’s happening next.</p>
+      <p>If you want to be more involved with the community, this is the place to be.</p>
+      <a class="discord" href="https://discord.gg/rAaxK4nnkh" target="_blank" rel="noopener noreferrer">Join Gunslayer’s HUB →</a>
+    </div>
+  </section>
+
+  <section class="social-section">
+    <div class="section-label">04 · Stay Connected</div>
+    <h2>Follow the journey.</h2>
+    <div class="social">
+      <a href="https://www.twitch.tv/gunslayersyt" target="_blank" rel="noopener noreferrer">Twitch</a>
+      <a href="https://www.youtube.com/@gunslayers" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://discord.gg/rAaxK4nnkh" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href="https://www.tiktok.com/@youtube_gunslayers?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.instagram.com/joshua__hankins/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 gunslayers · Thanks for being part of the journey.</footer>
+</div>
+</body>
+</html>
